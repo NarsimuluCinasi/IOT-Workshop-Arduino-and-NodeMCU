@@ -1,0 +1,6 @@
+
+
+https://api.thingspeak.com/update?api_key=31RVJ832UANIEYEQ&field1=20
+
+
+https://in.mathworks.com/help/thingspeak/read-and-post-temperature-data.html
