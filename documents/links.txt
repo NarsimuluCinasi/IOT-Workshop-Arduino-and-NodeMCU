@@ -1,6 +1,8 @@
 
 
-https://api.thingspeak.com/update?api_key=31RVJ832UANIEYEQ&field1=20
+
+CP2102 Drivers Link: https://www.silabs.com/documents/public/software/CP210x_Windows_Drivers.zip
 
 
-https://in.mathworks.com/help/thingspeak/read-and-post-temperature-data.html
+https://www.arduino.cc
+
