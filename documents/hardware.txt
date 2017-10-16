@@ -1,0 +1,15 @@
+
+
+
+Box Contains:
+
+NODEMCU Hardware
+USB Cable
+3.5mm LED
+10k Resistor
+1k Resistor
+switch
+4 male to male jumpers
+4 female to female jumpers
+LM35 Temperature sensor
+
