@@ -10,23 +10,14 @@ const char* password = "key#@ctpl12345$#";
 // ThingSpeak information
 char thingSpeakAddress[] = "https://api.thingspeak.com";
 unsigned long channelID = 347307;
-char* readAPIKey = "ZDKAYZATMMY8TAN2";
-char* writeAPIKey = "31RVJ832UANIEYEQ";
+const char* readAPIKey = "ZDKAYZATMMY8TAN2";
+const char* writeAPIKey = "31RVJ832UANIEYEQ";
 unsigned int dataFieldOne = 1;                            // Field to write temperature data
 
-unsigned long lastConnectionTime = 0;
-long lastUpdateTime = 0; 
 
 WiFiClient client;  
-String getStr;
 float readValue;
 
-int status = WL_IDLE_STATUS;
-// if you don't want to use DNS (and reduce your sketch size)
-// use the numeric IP instead of the name for the server:
-//IPAddress server(74,125,232,128);  // numeric IP for Google (no DNS)
-char server[] = "www.google.com";    // name address for Google (using DNS)
-int writeSuccess;
 void setup() {
 
 Serial.begin(9600);
@@ -62,41 +53,16 @@ while (WiFi.status() != WL_CONNECTED) {
 
 void loop() {
     
-    // Only update if posting time is exceeded
         
-        readValue = analogRead(A0) * 0.322695;
-		
-       // write2TSData( channelID , dataFieldOne , readValue);      // Write the temperature in F, C, and time since starting.
-      
-
+    readValue = analogRead(A0) * 0.32226525; // Reading Analogdata from Pin17 of Node MCU
+    
     writeSuccess = ThingSpeak.writeField( channelID, dataFieldOne, String(readValue), writeAPIKey ); // Write the data to the channel
-    if ( writeSuccess ){
     
-    Serial.println( String(readValue) + " written to Thingspeak." );
+    if ( writeSuccess )
+    {
+      Serial.println( String(readValue) + " written to Thingspeak." );
     }
-    
-//    Serial.println("\nStarting connection to server...");
-//    client.update(getStr);
-//
-//    while (client.available()) {
-//    char c = client.read();
-//    Serial.write(c);
-//    }
-
-  // if the server's disconnected, stop the client:
-//  if (!client.connected()) {
-//    Serial.println();
-//    Serial.println("disconnecting from server.");
-//    client.stop();
-//
-//    // do nothing forevermore:
-//    while (true);
-//  }
-
-     //Serial.println(getStr);
-		
-		 //client.print(getStr);
-		 delay(2000);
+		delay(20000); // giving 20sec time to update data in the server
 
 
 }
