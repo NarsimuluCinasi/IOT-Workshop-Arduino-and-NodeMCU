@@ -6,3 +6,5 @@ CP2102 Drivers Link: https://www.silabs.com/documents/public/software/CP210x_Win
 
 https://www.arduino.cc
 
+Feedback Form link: https://goo.gl/forms/0U2v09HezW36LeR42
+
