@@ -1,14 +1,9 @@
-/////////////////////////////////
-// Generated with a lot of love//
-// with TUNIOT FOR ESP8266     //
-// Website: Easycoding.tn      //
-/////////////////////////////////
 
 
 WiFiClient client;
 
 char thingSpeakAddress[] = "api.thingspeak.com";
-String thingtweetAPIKey = "QV9L17ZFSOF264HU";
+String thingtweetAPIKey = "yourapi";
 String tsData;
 
 void setup()

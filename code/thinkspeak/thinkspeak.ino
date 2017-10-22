@@ -4,14 +4,14 @@
 
 
 // Network Parameters
-const char* ssid     = "Tekcircuits R&D Lab";
-const char* password = "key#@ctpl12345$#";
+const char* ssid     = "wifi name";
+const char* password = "wifi pass";
 
 // ThingSpeak information
 char thingSpeakAddress[] = "https://api.thingspeak.com";
-unsigned long channelID = 347307;
-const char* readAPIKey = "ZDKAYZATMMY8TAN2";
-const char* writeAPIKey = "31RVJ832UANIEYEQ";
+unsigned long channelID = 0; // channel number
+const char* readAPIKey = "readapikey";
+const char* writeAPIKey = "writeapikey";
 unsigned int dataFieldOne = 1;                            // Field to write temperature data
 
 
@@ -46,7 +46,6 @@ while (WiFi.status() != WL_CONNECTED) {
   Serial.print(rssi);
   Serial.println(" dBm");
 
-
   delay(10000);
 }
 
@@ -55,14 +54,12 @@ void loop() {
     
         
     readValue = analogRead(A0) * 0.32226525; // Reading Analogdata from Pin17 of Node MCU
-    
     writeSuccess = ThingSpeak.writeField( channelID, dataFieldOne, String(readValue), writeAPIKey ); // Write the data to the channel
-    
     if ( writeSuccess )
     {
       Serial.println( String(readValue) + " written to Thingspeak." );
     }
-		delay(20000); // giving 20sec time to update data in the server
+	delay(20000); // giving 20sec time to update data in the server
 
 
 }

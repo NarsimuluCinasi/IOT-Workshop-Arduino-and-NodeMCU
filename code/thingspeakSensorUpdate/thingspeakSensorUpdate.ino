@@ -1,19 +1,22 @@
 
-// Tekcircuits R&D Lab Tutorial 
-// Simple code upload the tempeature and humidity data using thingspeak.com
-// Hardware: NodeMCU with LM35
+/* 
+	Tekcircuits R&D Lab Tutorial 
+	
+	The circuit:
+	* Simple code upload the tempeature and humidity data using thingspeak.com
+	* Hardware: NodeMCU with LM35
+	
+	Copyrighted to Tekcircuits R&D Lab
+*/
 
 #include <ESP8266WiFi.h>
  
-String apiKey = "31RVJ832UANIEYEQ";     //  Enter your Write API key from ThingSpeak
+String apiKey = "yourapikey";     //  Enter your Write API key from ThingSpeak
 
-const char* ssid     = "Tekcircuits R&D Lab";
-const char* pass = "key#@ctpl12345$#";
+const char* ssid     = "wifi name";
+const char* pass = "wifi password";
 const char* server = "api.thingspeak.com";
-float t;
-char thingSpeakAddress[] = "api.thingspeak.com";
-String thingtweetAPIKey = "QV9L17ZFSOF264HU";
-String tsData;
+float temperature;
 
 WiFiClient client;
  
@@ -36,14 +39,14 @@ void setup()
  
 void loop() 
 {
-       t = analogRead(A0)* 0.32226525;
+       temperature = analogRead(A0)* 0.32226525;
       
                       if (client.connect(server,80))   //   "184.106.153.149" or api.thingspeak.com
                       {  
                             
                              String postStr = apiKey;
                              postStr +="&field1=";
-                             postStr += String(t);
+                             postStr += String(temperature);
                              postStr +="&field2=";
                              postStr += String(28);
                              postStr += "\r\n\r\n";
@@ -59,7 +62,7 @@ void loop()
                              client.print(postStr);
  
                              Serial.print("Temperature: ");
-                             Serial.print(t);
+                             Serial.print(temperature);
                              Serial.print(" degrees Celcius, Humidity: ");
                              Serial.print(25);
                              Serial.println("%. Send to Thingspeak.");

@@ -1,16 +1,25 @@
+/* 
+	Tekcircuits R&D Lab Tutorial 
+	
+	The circuit:
+	* Simple code upload the tempeature and humidity data to twitter
+	* Hardware: NodeMCU with LM35 connected A0 pin
+	
+	 Copyrighted to Tekcircuits R&D Lab
+*/
+
+
+
 #include <DNSServer.h>
-
 #include <ESP8266WiFi.h>
-
-
 
 WiFiClient client;
 
-const char* ssid = "Tekcircuits R&D Lab";
-const char* pass = "key#@ctpl12345$#";
+const char* ssid = "wifi name";
+const char* pass = "wifi password";
 
 char thingSpeakAddress[] = "api.thingspeak.com";
-String thingtweetAPIKey = "B0WDNDGZLDZUF303";
+String thingtweetAPIKey = "api key";	//  Enter your Write API key from ThingSpeak
 String tsData;
 float temp;
 void setup()
@@ -42,8 +51,6 @@ while (WiFi.status() != WL_CONNECTED) {
   Serial.print(rssi);
   Serial.println(" dBm");
   delay(10000);
-
-  
 
 }
 

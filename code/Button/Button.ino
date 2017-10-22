@@ -1,67 +1,48 @@
 /*
-  Button
-
  Turns on and off a light emitting diode(LED) connected to digital
- pin 13, when pressing a pushbutton attached to pin 2.
+ pin 16, when pressing a pushbutton attached to pin 16.
 
 
  The circuit:
- * LED attached from pin 13 to ground
+ * LED attached from pin 16 to ground
  * pushbutton attached to pin 2 from +5V
  * 10K resistor attached to pin 2 from ground
-
- * Note: on most Arduinos there is already an LED on the board
- attached to pin 13.
-
-
- created 2005
- by DojoDave <http://www.0j0.org>
- modified 30 Aug 2011
- by Tom Igoe
-
- This example code is in the public domain.
-
- http://www.arduino.cc/en/Tutorial/Button
+ 
+ Copyrighted to Tekcircuits R&D Lab
+ 
  */
 
-// constants won't change. They're used here to
 // set pin numbers:
 const int buttonPin = 2;     // the number of the pushbutton pin
-const int ledPin =  13;      // the number of the LED pin
+const int ledPin =  16;      // the number of the LED pin
 
-// variables will change:
-int buttonState = 0; // variable for reading the pushbutton status
-int status=0;
+int buttonState = 0; 	// variable for reading the pushbutton status
+int status=0;			// update the LED Status
 
 void setup() {
-  //int status=0;
-  // initialize the LED pin as an output:
-  pinMode(ledPin, OUTPUT);
-  // initialize the pushbutton pin as an input:
-  pinMode(buttonPin, INPUT);
+  pinMode(ledPin, OUTPUT);		// initialize the LED pin as an output:
+  pinMode(buttonPin, INPUT);	// initialize the pushbutton pin as an input:
 }
 
 
 
 void loop() {
-  // read the state of the pushbutton value:
-  buttonState = digitalRead(buttonPin);
-  delay(10);
-  Serial.println(buttonState);
-  if(buttonState==1)
-  {
-    status = !status;
-    }
+  
+	  buttonState = digitalRead(buttonPin);	// read the state of the pushbutton value:
+	  delay(10);							// To avoid switch bounce case
+  
+	  if(buttonState==1)					// check if the pushbutton is pressed.
+	  {
+		status = !status;					// on every press we are toggling the status
+	  }
   
 
-  // check if the pushbutton is pressed.
-  // if it is, the buttonState is HIGH:
-
- if (status) {
-    // turn LED on:
-    digitalWrite(ledPin, HIGH);
- } else {
-    // turn LED off:
-    digitalWrite(ledPin, LOW);
-  }
+	 if (status) 
+	 {
+		digitalWrite(ledPin, HIGH);	// turn LED on:
+	 } 
+	 else 
+	 {
+		digitalWrite(ledPin, LOW);	// turn LED off:
+	 }
 }

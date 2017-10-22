@@ -1,25 +1,26 @@
 /*
- *  This sketch sends data via HTTP GET requests to data.sparkfun.com service.
- *
- *  You need to get streamId and privateKey at data.sparkfun.com and paste them
- *  below. Or just customize this script to talk to other HTTP servers.
- *
+	Tekcircuits R&D Lab Tutorial 
+		
+		The circuit:
+		* Simple code upload the tempeature and humidity data using thingspeak.com
+		* Hardware: NodeMCU with LM35
+		
+	Copyrighted to Tekcircuits R&D Lab
  */
 
 #include <ESP8266WiFi.h>
 
 
-const char* ssid     = "Tekcircuits R&D Lab";
-const char* password = "key#@ctpl12345$#";
+const char* ssid     = "wifi name";
+const char* password = "wifi password";
 
-//const char* host = "data.sparkfun.com";
 const char* streamId   = "....................";
 const char* privateKey = "....................";
 
 const char *host = "https://api.thingspeak.com";
-unsigned long channelID = 347307;
-char* readAPIKey = "ZDKAYZATMMY8TAN2";
-char* writeAPIKey = "31RVJ832UANIEYEQ";
+unsigned long channelID = 0; //change channel id here
+char* readAPIKey = "readapi";
+char* writeAPIKey = "writeapi";
 unsigned int dataFieldOne = 1; 
 
 void setup() {

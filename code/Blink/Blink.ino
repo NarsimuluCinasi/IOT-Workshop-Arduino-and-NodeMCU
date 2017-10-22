@@ -1,13 +1,10 @@
 /*
- ESP8266 Blink by Narsimulu Cinasi
- Blink the blue LED on the ESP-01 module
+ NodeMCU Blink test by Narsimulu Cinasi
+ Blink the blue LED on the NodeMCU module
  This example code is in the public domain
  
- The blue LED on the ESP-01 module is connected to GPIO1 
- (which is also the TXD pin; so we cannot use Serial.print() at the same time)
- 
+ The blue LED on the NODEMCU module is connected to GPIO1 
  Note that this sketch uses LED_BUILTIN to find the pin with the internal LED
-
  Copyrighted to Tekcircuits R&D Lab
 */
 
